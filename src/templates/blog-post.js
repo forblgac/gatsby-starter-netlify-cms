@@ -13,7 +13,7 @@ export const BlogPostTemplate = ({
   tags,
   title,
   helmet,
-  ogpsrc,
+  image,
 }) => {
   const PostContent = contentComponent || Content
 
@@ -27,7 +27,7 @@ export const BlogPostTemplate = ({
               {title}
             </h1>
             <p>{description}</p>
-            <img class="top" src={ogpsrc} />
+            <img src={image} alt='' />
             <PostContent content={content} />
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
@@ -54,6 +54,7 @@ BlogPostTemplate.propTypes = {
   description: PropTypes.string,
   title: PropTypes.string,
   helmet: PropTypes.instanceOf(Helmet),
+  image: PropTypes.string,
 }
 
 const BlogPost = ({ data }) => {
@@ -68,7 +69,7 @@ const BlogPost = ({ data }) => {
         helmet={<Helmet title={`${post.frontmatter.title} | Blog`} />}
         tags={post.frontmatter.tags}
         title={post.frontmatter.title}
-        ogpsrc={post.frontmatter.images}
+        image={post.frontmatter.image}
       />
     </Layout>
   )
@@ -92,24 +93,8 @@ export const pageQuery = graphql`
         title
         description
         tags
+        image
       }
     }
   }
 `
-
-const Meta = ({ post }) => {
-  const origin = 'https://spitz.netlify.com/';
-
-  return (
-    <Helmet
-      title={`${post.frontmatter.title} | Blog`}
-      meta={[
-        { name: 'description', content: post.frontmatter.description },
-        { property: 'og:title', content: post.frontmatter.title },
-        { property: 'og:description', content: post.frontmatter.description },
-        { property: 'og:image', content: `${origin}${post.frontmatter.image}` },
-      ]}
-    />
-  );
-};
-

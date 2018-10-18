@@ -7,6 +7,11 @@ public_folder: /img
 
 publish_mode: editorial_workflow
 
+media_library:
+  name: uploadcare
+  config:
+    publicKey: c4c007ea6f9446fa2654
+
 collections:
   - name: "blog"
     label: "Blog"

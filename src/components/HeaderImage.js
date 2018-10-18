@@ -1,5 +1,5 @@
 import React from 'react'
-import header from '../img/header.svg'
+import header from '../img/header.jpg'
 import { Link } from 'gatsby'
 
 const HeaderImage = () => (

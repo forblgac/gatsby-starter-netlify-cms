@@ -4,18 +4,18 @@ import { Link } from 'gatsby'
 const Navbar = () => (
   <nav className="navbar is-transparent">
     <div className="container">
-        <hr/>
       <div className="navbar-start">
-        <Link className="navbar-item" to="/about">
-          このサイトについて
+        <Link className="navbar-item" to="/">
+          Home
         </Link>
         <Link className="navbar-item" to="/tags/python/">
           Python
         </Link>
-
+        <Link className="navbar-item" to="/about">
+          About
+        </Link>
       </div>
       <div className="navbar-end">
-        <hr/>
       </div>
     </div>
   </nav>

@@ -13,13 +13,13 @@ export default class IndexPage extends React.Component {
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1 className="has-text-weight-bold is-size-2">最新記事</h1>
+              <h1 className="has-text-weight-bold is-size-2"></h1>
             </div>
+            <div className='content-top'></div>
             {posts
               .map(({ node: post }) => (
                 <div
-                  className="content"
-                  style={{ border: '1px solid #eaecee', padding: '2em 4em' }}
+                  className="content main-content"
                   key={post.id}
                 >
                   <p>
@@ -39,6 +39,7 @@ export default class IndexPage extends React.Component {
                   </p>
                 </div>
               ))}
+            <div className='content-bottom'></div>
           </div>
         </section>
       </Layout>
